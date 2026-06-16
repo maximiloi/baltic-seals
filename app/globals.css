@@ -130,11 +130,77 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    @apply font-sans scroll-smooth;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+
+  /* Semantic heading hierarchy */
+  h1, .h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    font-family: 'Mr Vokiar', 'Playfair Display', serif;
+  }
+
+  h2, .h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-wide;
+    font-family: 'Mr Vokiar', 'Playfair Display', serif;
+  }
+
+  h3, .h3 {
+    @apply text-2xl md:text-3xl font-bold;
+    font-family: 'Mr Vokiar', 'Playfair Display', serif;
+  }
+
+  h4, .h4 {
+    @apply text-xl font-semibold;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h5, .h5 {
+    @apply text-lg font-semibold;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h6, .h6 {
+    @apply text-base font-semibold;
+    font-family: 'Inter', sans-serif;
+  }
+
+  p {
+    @apply text-base leading-relaxed md:text-lg;
+    font-family: 'Inter', sans-serif;
+  }
+
+  a {
+    @apply transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
+  }
+
+  button, [role="button"] {
+    @apply transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
+  }
+
+  /* Focus visible support for keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid;
+    outline-color: rgb(59, 130, 246);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
