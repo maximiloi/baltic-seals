@@ -66,7 +66,7 @@ export function HeroSection() {
 
   return (
     <header className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/20 to-slate-950 opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-blue-950/20 to-slate-950 opacity-60" />
 
       {/* Animated gradient glows */}
       <motion.div
@@ -74,7 +74,7 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
         aria-hidden="true"
-        className="absolute top-10 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px]"
+        className="w-125rounded-full absolute top-10 left-1/4 h-125 bg-blue-600/20 blur-[120px]"
       />
       <motion.div
         variants={glowVariants}
@@ -82,7 +82,7 @@ export function HeroSection() {
         animate="visible"
         transition={{ delay: 0.5 }}
         aria-hidden="true"
-        className="absolute right-1/4 -bottom-32 h-[500px] w-[500px] rounded-full bg-orange-600/20 blur-[120px]"
+        className="absolute right-1/4 -bottom-32 h-125 w-125 rounded-full bg-orange-600/20 blur-[120px]"
       />
 
       <motion.div
@@ -160,7 +160,7 @@ export function HeroSection() {
             variants={infoVariants}
           >
             <motion.button
-              className="label-text rounded-lg bg-linear-to-r from-blue-600 to-blue-700 px-8 py-3 font-bold text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-shadow"
+              className="label-text rounded-lg bg-linear-to-r from-blue-600 to-blue-700 px-8 py-3 font-bold text-white shadow-lg shadow-blue-500/25 transition-shadow hover:shadow-blue-500/40"
               style={{ fontFamily: "'Inter', sans-serif" }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
@@ -169,7 +169,7 @@ export function HeroSection() {
               Узнать больше
             </motion.button>
             <motion.button
-              className="label-text rounded-lg border-2 border-blue-400 px-8 py-3 font-bold text-blue-400 hover:bg-blue-400/10 transition-colors"
+              className="label-text rounded-lg border-2 border-blue-400 px-8 py-3 font-bold text-blue-400 transition-colors hover:bg-blue-400/10"
               style={{ fontFamily: "'Inter', sans-serif" }}
               whileHover={
                 shouldReduceMotion
@@ -186,7 +186,10 @@ export function HeroSection() {
       </motion.div>
 
       {/* Waves at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-40 overflow-hidden sm:h-48 md:h-56 lg:h-64" aria-hidden="true">
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 overflow-hidden sm:h-48 md:h-56 lg:h-64"
+        aria-hidden="true"
+      >
         <WavesSVG />
       </div>
 
