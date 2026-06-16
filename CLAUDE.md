@@ -13,6 +13,7 @@
 - **Styling**: Tailwind CSS v4 + shadcn/ui
 - **UI Components**: shadcn/ui (Button, и другие компоненты по мере необходимости)
 - **Icons**: lucide-react
+- **Animations**: Framer Motion
 - **Linting**: ESLint
 
 ## Структура проекта
@@ -31,8 +32,7 @@ baltic-seals/
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.ts
-├── components.json        # shadcn конфигурация
-└── CLAUDE.md.ru          # Русская версия этого файла
+└── components.json        # shadcn конфигурация
 ```
 
 ## Команды разработки
@@ -63,6 +63,9 @@ npx shadcn@latest add <component-name>
 
 - ✅ Next.js инициализирован
 - ✅ Tailwind CSS настроен
-- ✅ shadcn/ui интегрирован
-- ⏳ Структура страниц в разработке
-- ⏳ Компоненты команды в разработке
+- ✅ shadcn/ui интегрирован (Card)
+- ✅ Hero Section с анимациями Framer Motion
+- ✅ Stats Section с динамической статистикой из турниров
+- ✅ Tournaments Section с единым дизайном
+- ✅ WavesSVG компонент с бесшовными волнами (30% шире экрана)
+- ✅ Единый дизайн всех секций (dark mode compatible)
