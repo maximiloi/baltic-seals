@@ -80,7 +80,7 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.5 }}
-        className="absolute -bottom-32 right-1/4 h-[500px] w-[500px] rounded-full bg-orange-600/20 blur-[120px]"
+        className="absolute right-1/4 -bottom-32 h-[500px] w-[500px] rounded-full bg-orange-600/20 blur-[120px]"
       />
 
       <motion.div
@@ -114,7 +114,7 @@ export function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1
-              className="section-title text-white"
+              className="section-title text-8xl text-white"
               style={{
                 fontFamily: "'Mr Vokiar', sans-serif",
               }}
