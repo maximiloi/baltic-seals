@@ -69,3 +69,24 @@ npx shadcn@latest add <component-name>
 - ✅ Tournaments Section с единым дизайном
 - ✅ WavesSVG компонент с бесшовными волнами (30% шире экрана)
 - ✅ Единый дизайн всех секций (dark mode compatible)
+- ✅ Practices Section с расписанием тренировок и ссылками на Яндекс.Карты
+
+## Источники данных Google Sheets
+
+Все данные получаются из одного Google Sheets документа:
+- Лист `Tournaments` — турниры и статистика
+- Лист `Practice` — расписание тренировок с местами проведения
+
+### Формат данных Practice:
+```
+namePlace | address | coordinates | details | startDate | endDate | status
+```
+
+- `coordinates` — формат: "59.944852, 30.376142" (широта, долгота)
+- `details` — формат: "Понедельник | 20-00 до 22-00; Пятница | 20-00 до 22-00;"
+- `status` — "permanent" или "optional"
+  - **permanent**: место показывается в любое время в течение периода
+  - **optional**: показывается с примечанием "По согласованию" и ссылкой на ВКонтакте
+
+Тренировки отображаются только если текущая дата попадает в диапазон `startDate`-`endDate`.
+
