@@ -116,7 +116,7 @@ export function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1
-              className="section-title text-8xl text-white"
+              className="section-title text-6xl text-white md:text-8xl"
               style={{
                 fontFamily: "'Mr Vokiar', sans-serif",
               }}

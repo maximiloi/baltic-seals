@@ -328,6 +328,14 @@ export function TournamentsContentClient({
             Турниры
           </motion.h2>
 
+          <motion.p
+            className="body-text mx-auto mb-6 max-w-2xl text-slate-300"
+            variants={itemVariants}
+          >
+            Мы постоянно участвуем в турнирах по всей России, расширяя опыт и
+            совершенствуя своё мастерство
+          </motion.p>
+
           {/* Dynamic Statistics */}
           <motion.div className="mb-6 inline-block" variants={itemVariants}>
             <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
@@ -374,14 +382,6 @@ export function TournamentsContentClient({
               </div>
             </div>
           </motion.div>
-
-          <motion.p
-            className="body-text mx-auto mb-6 max-w-2xl text-slate-300"
-            variants={itemVariants}
-          >
-            Мы постоянно участвуем в турнирах по всей России, расширяя опыт и
-            совершенствуя своё мастерство
-          </motion.p>
 
           {/* Countdown to next tournament */}
           {upcoming.length > 0 && (

@@ -46,7 +46,7 @@ function PracticeCard({ practice }: PracticeCardProps) {
           {practice.namePlace}
         </h4>
         <div className="mt-2 flex items-start gap-2 text-slate-400">
-          <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
           <span className="line-clamp-2 text-xs sm:text-sm">
             {practice.address}
           </span>
@@ -60,8 +60,8 @@ function PracticeCard({ practice }: PracticeCardProps) {
             key={idx}
             className="flex items-start gap-2 text-xs text-slate-300 sm:text-sm"
           >
-            <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" />
-            <span className="break-words">
+            <Clock className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
+            <span className="wrap-break-words">
               <strong className="block sm:inline">{session.day}:</strong>
               <span className="block sm:inline">
                 c {session.startTime} до {session.endTime}
@@ -80,7 +80,7 @@ function PracticeCard({ practice }: PracticeCardProps) {
       {practice.status === 'optional' && (
         <div className="mt-auto rounded-lg bg-amber-500/10 p-2 sm:p-3">
           <div className="flex items-center gap-2">
-            <AlertCircle className="mt-0.5 h-8 w-8 flex-shrink-0 text-amber-400" />
+            <AlertCircle className="mt-0.5 h-8 w-8 shrink-0 text-amber-400" />
             <div className="text-xs text-amber-200">
               <p className="text-xs font-semibold sm:text-sm">
                 Проведение уточняйте в группе ВКонтакте:
