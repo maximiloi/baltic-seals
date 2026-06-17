@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/HeroSection';
+import { FlagFootballSection } from '@/components/FlagFootballSection';
 import { StatsSection } from '@/components/StatsSection';
 import { TournamentsSection } from '@/components/TournamentsSection';
 import { PracticesSectionContentClient } from '@/components/PracticesSection';
@@ -14,6 +15,7 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
+      <FlagFootballSection />
       <StatsSection tournaments={tournaments} />
       <TournamentsSection tournaments={tournaments} />
       <PracticesSectionContentClient practices={practices} />

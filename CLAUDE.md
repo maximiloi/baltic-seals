@@ -65,6 +65,7 @@ npx shadcn@latest add <component-name>
 - ✅ Tailwind CSS настроен
 - ✅ shadcn/ui интегрирован (Card)
 - ✅ Hero Section с анимациями Framer Motion
+- ✅ Flag Football Section — информация об олимпийском виде спорта с ссылкой на Olympics.com и официальным логотипом
 - ✅ Stats Section с динамической статистикой из турниров
 - ✅ Tournaments Section с единым дизайном
 - ✅ WavesSVG компонент с бесшовными волнами (30% шире экрана)
