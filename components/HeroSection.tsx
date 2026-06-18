@@ -66,7 +66,7 @@ export function HeroSection() {
 
   return (
     <header className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-blue-950/20 to-slate-950 opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-900 to-slate-900" />
 
       {/* Animated gradient glows */}
       <motion.div

@@ -47,8 +47,6 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
   const pastTournaments = tournaments.filter((t) => t.status === 'past');
 
   let wins = 0;
-  let losses = 0;
-  let draws = 0;
   let totalMatches = 0;
 
   pastTournaments.forEach((tournament) => {
@@ -56,8 +54,6 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
       totalMatches++;
       const result = getMatchResult(match.score);
       if (result === 'win') wins++;
-      else if (result === 'loss') losses++;
-      else if (result === 'draw') draws++;
     });
   });
 
@@ -262,7 +258,7 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
             return (
               <motion.div key={index} variants={itemVariants}>
                 <Card
-                  className={`border-2 ${stat.borderColor} ${stat.bgColor} group hover:border-opacity-100 relative overflow-hidden bg-slate-900/50 p-6 backdrop-blur transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 focus-within:ring-2 focus-within:ring-blue-400`}
+                  className={`border-2 ${stat.borderColor} ${stat.bgColor} group hover:border-opacity-100 relative overflow-hidden bg-slate-900/50 p-6 backdrop-blur transition-all duration-300 focus-within:ring-2 focus-within:ring-blue-400 hover:shadow-lg hover:shadow-blue-500/20`}
                 >
                   {/* Hover gradient effect */}
                   <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -285,7 +281,12 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
                     <p className="label-text mb-1 text-slate-400">
                       {stat.label}
                     </p>
-                    <p className="stat-value text-white" aria-label={`${stat.label}: ${stat.value}`}>{stat.value}</p>
+                    <p
+                      className="stat-value text-white"
+                      aria-label={`${stat.label}: ${stat.value}`}
+                    >
+                      {stat.value}
+                    </p>
                   </div>
                 </Card>
               </motion.div>
@@ -305,12 +306,15 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
             const Icon = feature.icon;
             return (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="group relative overflow-hidden border-2 border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur transition-all duration-300 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 focus-within:ring-2 focus-within:ring-blue-400">
+                <Card className="group relative overflow-hidden border-2 border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur transition-all duration-300 focus-within:ring-2 focus-within:ring-blue-400 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10">
                   {/* Background gradient on hover */}
                   <div className="absolute inset-0 bg-linear-to-br from-blue-600/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div className="relative z-10">
-                    <div className="mb-4 inline-flex rounded-lg bg-blue-500/10 p-3 transition-all duration-300 group-hover:bg-blue-500/20" aria-hidden="true">
+                    <div
+                      className="mb-4 inline-flex rounded-lg bg-blue-500/10 p-3 transition-all duration-300 group-hover:bg-blue-500/20"
+                      aria-hidden="true"
+                    >
                       <Icon className="h-6 w-6 text-blue-400 transition-colors duration-300 group-hover:text-blue-300" />
                     </div>
 
