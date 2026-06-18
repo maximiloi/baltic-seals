@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Heart, Share2, Star } from 'lucide-react';
-import Link from 'next/link';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,8 +33,8 @@ export function Footer() {
       title: 'Команда',
       links: [
         { label: 'О нас', href: '#stats' },
-        { label: 'Состав', href: '#' },
-        { label: 'История', href: '#' },
+        // { label: 'Состав', href: '#' },
+        // { label: 'История', href: '#' },
       ],
     },
     {
@@ -43,42 +42,48 @@ export function Footer() {
       links: [
         { label: 'Турниры', href: '#tournaments' },
         { label: 'Тренировки', href: '#practices' },
-        { label: 'Правила флаг-футбола', href: 'https://www.olympics.com/ru/news/flag-football-rules-players-origins-things-to-know' },
+        {
+          label: 'Правила флаг-футбола',
+          href: 'https://www.olympics.com/ru/news/flag-football-rules-players-origins-things-to-know',
+        },
       ],
     },
     {
       title: 'Контакты',
       links: [
         { label: 'Email', href: 'mailto:info@baltic-seals.ru' },
-        { label: 'ВКонтакте', href: '#' },
+        { label: 'ВКонтакте', href: 'https://vk.ru/baltic_seals' },
         { label: 'Спонсорство', href: '#sponsors' },
       ],
     },
   ];
 
-  const socialLinks = [
-    {
-      icon: Heart,
-      label: 'Facebook',
-      href: '#',
-      color: 'text-blue-500 hover:text-blue-400',
-    },
-    {
-      icon: Star,
-      label: 'Instagram',
-      href: '#',
-      color: 'text-pink-500 hover:text-pink-400',
-    },
-    {
-      icon: Share2,
-      label: 'VK',
-      href: '#',
-      color: 'text-cyan-500 hover:text-cyan-400',
-    },
-  ];
+  // const socialLinks = [
+  //   {
+  //     icon: Heart,
+  //     label: 'Facebook',
+  //     href: '#',
+  //     color: 'text-blue-500 hover:text-blue-400',
+  //   },
+  //   {
+  //     icon: Star,
+  //     label: 'Instagram',
+  //     href: '#',
+  //     color: 'text-pink-500 hover:text-pink-400',
+  //   },
+  //   {
+  //     icon: Share2,
+  //     label: 'VK',
+  //     href: '#',
+  //     color: 'text-cyan-500 hover:text-cyan-400',
+  //   },
+  // ];
 
   return (
-    <footer id="footer" className="relative w-full overflow-hidden bg-slate-950 text-white">
+    <footer
+      id="footer"
+      className="relative w-full overflow-hidden bg-slate-950 text-white"
+    >
       {/* Gradient closes the loop */}
       <div className="absolute inset-0 bg-linear-to-b from-slate-950 to-slate-950" />
 
@@ -97,7 +102,7 @@ export function Footer() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"
+          className="absolute right-1/4 bottom-1/4 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"
           animate={{
             y: [0, -30, 0],
             x: [0, -30, 0],
@@ -130,7 +135,7 @@ export function Footer() {
               </p>
 
               {/* Social Links */}
-              <div className="flex gap-4">
+              {/* <div className="flex gap-4">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -138,7 +143,7 @@ export function Footer() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className={`transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current rounded-lg ${social.color}`}
+                      className={`rounded-lg transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current ${social.color}`}
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -146,7 +151,7 @@ export function Footer() {
                     </motion.a>
                   );
                 })}
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Footer Links Sections */}
@@ -193,7 +198,10 @@ export function Footer() {
             viewport={{ once: true, margin: '-100px' }}
           >
             {/* Email */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-4"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10">
                 <Mail className="h-6 w-6 text-blue-400" />
               </div>
@@ -209,7 +217,10 @@ export function Footer() {
             </motion.div>
 
             {/* Location */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-4"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-500/10">
                 <MapPin className="h-6 w-6 text-cyan-400" />
               </div>
@@ -220,7 +231,10 @@ export function Footer() {
             </motion.div>
 
             {/* Phone */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-4"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10">
                 <Phone className="h-6 w-6 text-orange-400" />
               </div>
@@ -247,9 +261,9 @@ export function Footer() {
           <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <p className="body-text text-slate-400">
-                © {currentYear} Балтийские Нерпы. Все права защищены.
+                © 2025 - {currentYear} Балтийские Нерпы. Все права защищены.
               </p>
-              <div className="flex gap-6">
+              {/* <div className="flex gap-6">
                 <motion.a
                   href="#"
                   className="body-text text-slate-400 transition-colors hover:text-blue-400"
@@ -264,7 +278,7 @@ export function Footer() {
                 >
                   Условия использования
                 </motion.a>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>
