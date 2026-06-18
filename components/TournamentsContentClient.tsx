@@ -75,7 +75,7 @@ function CountdownTimer({ date }: { date: string }) {
   }, [date]);
 
   return (
-    <div className="flex justify-center gap-4 sm:gap-6">
+    <div className="flex justify-center gap-4 sm:gap-6" role="timer" aria-label="Обратный отсчет до ближайшего турнира" aria-live="polite">
       {/* Days */}
       <motion.div
         className="flex flex-col items-center"
@@ -283,7 +283,7 @@ export function TournamentsContentClient({
   past: Tournament[];
 }) {
   return (
-    <section className="relative w-full py-24 text-white">
+    <section id="tournaments" className="relative w-full py-24 text-white">
       <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-900" />
       {/* Animated background glows - distributed, cool tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">

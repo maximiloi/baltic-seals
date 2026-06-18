@@ -33,7 +33,7 @@ export function Footer() {
     {
       title: 'Команда',
       links: [
-        { label: 'О нас', href: '#' },
+        { label: 'О нас', href: '#stats' },
         { label: 'Состав', href: '#' },
         { label: 'История', href: '#' },
       ],
@@ -41,8 +41,8 @@ export function Footer() {
     {
       title: 'Информация',
       links: [
-        { label: 'Турниры', href: '#' },
-        { label: 'Тренировки', href: '#' },
+        { label: 'Турниры', href: '#tournaments' },
+        { label: 'Тренировки', href: '#practices' },
         { label: 'Правила флаг-футбола', href: 'https://www.olympics.com/ru/news/flag-football-rules-players-origins-things-to-know' },
       ],
     },
@@ -51,7 +51,7 @@ export function Footer() {
       links: [
         { label: 'Email', href: 'mailto:info@baltic-seals.ru' },
         { label: 'ВКонтакте', href: '#' },
-        { label: 'Спонсорство', href: '#' },
+        { label: 'Спонсорство', href: '#sponsors' },
       ],
     },
   ];
@@ -78,7 +78,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative w-full overflow-hidden bg-slate-950 text-white">
+    <footer id="footer" className="relative w-full overflow-hidden bg-slate-950 text-white">
       {/* Gradient closes the loop */}
       <div className="absolute inset-0 bg-linear-to-b from-slate-950 to-slate-950" />
 
@@ -138,7 +138,7 @@ export function Footer() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className={`transition-colors duration-300 ${social.color}`}
+                      className={`transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current rounded-lg ${social.color}`}
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -151,7 +151,7 @@ export function Footer() {
 
             {/* Footer Links Sections */}
             {footerLinks.map((section) => (
-              <motion.div
+              <motion.nav
                 key={section.title}
                 variants={itemVariants}
                 className="col-span-1"
@@ -172,7 +172,7 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </motion.nav>
             ))}
           </motion.div>
 

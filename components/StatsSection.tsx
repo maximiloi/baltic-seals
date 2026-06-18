@@ -190,7 +190,7 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
   ];
 
   return (
-    <section className="relative w-full py-24 text-white">
+    <section id="stats" className="relative w-full py-24 text-white">
       <div className="absolute inset-0 bg-linear-to-b from-slate-800 via-slate-850 to-slate-900" />
       {/* Animated background glows - distributed, warm tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">

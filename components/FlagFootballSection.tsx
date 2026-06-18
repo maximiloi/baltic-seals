@@ -144,7 +144,7 @@ export function FlagFootballSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden py-24 text-white">
+    <section id="flag-football" className="relative w-full overflow-hidden py-24 text-white">
       {/* Gradient continues from hero and transitions to next section */}
       <div className="absolute inset-0 bg-linear-to-b from-slate-800 via-slate-900 to-slate-800" />
 

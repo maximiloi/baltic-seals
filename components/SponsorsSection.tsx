@@ -68,7 +68,7 @@ export function SponsorsSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden py-24 text-white">
+    <section id="sponsors" className="relative w-full overflow-hidden py-24 text-white">
       {/* Gradient continues from practices section */}
       <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-950" />
 

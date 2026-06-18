@@ -65,7 +65,7 @@ export function HeroSection() {
   };
 
   return (
-    <header className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
+    <header id="hero" className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-900 to-slate-800" />
 
       {/* Animated gradient glows - distributed across screen */}
@@ -192,40 +192,6 @@ export function HeroSection() {
       >
         <WavesSVG />
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 transform"
-        animate={{ y: [0, 10, 0] }}
-        transition={{
-          duration: shouldReduceMotion ? 0 : 2,
-          repeat: Infinity,
-        }}
-        aria-hidden="true"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span
-            className="label-text text-white/50"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Прокрутите вниз
-          </span>
-          <svg
-            className="h-6 w-6 text-white/50"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
-      </motion.div>
     </header>
   );
 }

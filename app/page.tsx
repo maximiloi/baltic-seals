@@ -15,7 +15,7 @@ export default async function Home() {
   ]);
 
   return (
-    <>
+    <main id="main-content">
       <HeroSection />
       <FlagFootballSection />
       <StatsSection tournaments={tournaments} />
@@ -23,6 +23,6 @@ export default async function Home() {
       <PracticesSectionContentClient practices={practices} />
       <SponsorsSection />
       <Footer />
-    </>
+    </main>
   );
 }

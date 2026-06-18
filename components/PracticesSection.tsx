@@ -115,7 +115,7 @@ export function PracticesSectionContentClient({
   }
 
   return (
-    <section className="relative w-full py-24 text-white">
+    <section id="practices" className="relative w-full py-24 text-white">
       <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-900" />
       {/* Animated background glows - distributed, teal/green tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
