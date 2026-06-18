@@ -190,29 +190,30 @@ export function StatsSection({ tournaments }: StatsSectionProps) {
   ];
 
   return (
-    <section className="relative w-full bg-linear-to-b from-slate-900 via-slate-950 to-slate-900 py-24 text-white">
-      {/* Animated background glows */}
+    <section className="relative w-full py-24 text-white">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-800 via-slate-850 to-slate-900" />
+      {/* Animated background glows - distributed, warm tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.div
-          className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl"
+          className="absolute top-1/3 right-1/2 h-96 w-96 rounded-full bg-orange-500/15 blur-3xl"
           animate={{
-            y: [0, 30, 0],
+            y: [0, 35, 0],
             x: [0, 30, 0],
           }}
           transition={{
-            duration: 8,
+            duration: 9,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-orange-600/10 blur-3xl"
+          className="absolute top-2/3 left-1/4 h-80 w-80 rounded-full bg-amber-500/20 blur-3xl"
           animate={{
-            y: [0, -30, 0],
-            x: [0, -30, 0],
+            y: [0, -40, 0],
+            x: [0, -35, 0],
           }}
           transition={{
-            duration: 10,
+            duration: 11,
             repeat: Infinity,
             ease: 'easeInOut',
           }}

@@ -115,14 +115,15 @@ export function PracticesSectionContentClient({
   }
 
   return (
-    <section className="relative w-full bg-linear-to-b from-slate-900 via-slate-950 to-slate-900 py-24 text-white">
-      {/* Animated background glows */}
+    <section className="relative w-full py-24 text-white">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-900" />
+      {/* Animated background glows - distributed, teal/green tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.div
-          className="absolute top-1/4 -right-96 h-96 w-96 rounded-full bg-teal-600/10 blur-3xl"
+          className="absolute top-1/4 left-1/2 h-96 w-96 rounded-full bg-teal-500/15 blur-3xl"
           animate={{
-            y: [0, 30, 0],
-            x: [0, -20, 0],
+            y: [0, 40, 0],
+            x: [0, 30, 0],
           }}
           transition={{
             duration: 8,
@@ -131,10 +132,10 @@ export function PracticesSectionContentClient({
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 -left-96 h-96 w-96 rounded-full bg-cyan-600/10 blur-3xl"
+          className="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"
           animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
+            y: [0, -40, 0],
+            x: [0, -35, 0],
           }}
           transition={{
             duration: 10,

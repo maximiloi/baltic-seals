@@ -65,16 +65,16 @@ export function HeroSection() {
   };
 
   return (
-    <header className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-900 to-slate-900" />
+    <header className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-900 to-slate-800" />
 
-      {/* Animated gradient glows */}
+      {/* Animated gradient glows - distributed across screen */}
       <motion.div
         variants={glowVariants}
         initial="hidden"
         animate="visible"
         aria-hidden="true"
-        className="w-125rounded-full absolute top-10 left-1/4 h-125 bg-blue-600/20 blur-[120px]"
+        className="absolute top-1/4 left-1/3 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl"
       />
       <motion.div
         variants={glowVariants}
@@ -82,7 +82,7 @@ export function HeroSection() {
         animate="visible"
         transition={{ delay: 0.5 }}
         aria-hidden="true"
-        className="absolute right-1/4 -bottom-32 h-125 w-125 rounded-full bg-orange-600/20 blur-[120px]"
+        className="absolute top-1/3 right-1/4 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl"
       />
 
       <motion.div

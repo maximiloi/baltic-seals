@@ -138,6 +138,7 @@
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   }
 
   /* Semantic heading hierarchy */
