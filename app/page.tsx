@@ -3,6 +3,8 @@ import { FlagFootballSection } from '@/components/FlagFootballSection';
 import { StatsSection } from '@/components/StatsSection';
 import { TournamentsSection } from '@/components/TournamentsSection';
 import { PracticesSectionContentClient } from '@/components/PracticesSection';
+import { SponsorsSection } from '@/components/SponsorsSection';
+import { Footer } from '@/components/Footer';
 import { getTournaments } from '@/lib/tournaments';
 import { getPractices } from '@/lib/practices';
 
@@ -19,6 +21,8 @@ export default async function Home() {
       <StatsSection tournaments={tournaments} />
       <TournamentsSection tournaments={tournaments} />
       <PracticesSectionContentClient practices={practices} />
+      <SponsorsSection />
+      <Footer />
     </>
   );
 }
