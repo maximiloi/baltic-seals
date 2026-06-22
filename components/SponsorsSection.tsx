@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-import { Heart, Mail, Zap } from 'lucide-react';
+import { Heart, Mail, Zap, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 const containerVariants = {
@@ -34,6 +34,13 @@ export function SponsorsSection() {
       name: 'Стоматологический центр "Базель"',
       logo: '/sponsors/basel-logo.jpg',
       alt: 'Логотип Стоматологического центра "Базель"',
+    },
+    {
+      id: 2,
+      name: 'RISE-GYM | Спортивный клуб в СПб',
+      logo: '/sponsors/rise-logo.png',
+      alt: 'Логотип Спортивный клуба "RISE-GYM"',
+      url: 'https://rise-gym.ru/',
     },
   ];
 
@@ -68,9 +75,12 @@ export function SponsorsSection() {
   ];
 
   return (
-    <section id="sponsors" className="relative w-full overflow-hidden py-24 text-white">
+    <section
+      id="sponsors"
+      className="relative w-full overflow-hidden py-24 text-white"
+    >
       {/* Gradient continues from practices section */}
-      <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-950" />
+      <div className="via-slate-850 absolute inset-0 bg-linear-to-b from-slate-900 to-slate-950" />
 
       {/* Animated background glows - distributed, pink/rose tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -143,8 +153,8 @@ export function SponsorsSection() {
             className="flex flex-wrap items-center justify-center gap-8"
             variants={containerVariants}
           >
-            {sponsors.map((sponsor) => (
-              <motion.div key={sponsor.id} variants={itemVariants}>
+            {sponsors.map((sponsor) => {
+              const CardContent = (
                 <Card className="group relative overflow-hidden border-2 border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur transition-all duration-300 focus-within:ring-2 focus-within:ring-blue-400 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10">
                   <div className="absolute inset-0 bg-linear-to-br from-blue-600/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -158,13 +168,34 @@ export function SponsorsSection() {
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>
-                    <p className="body-text mt-4 text-center text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
-                      {sponsor.name}
-                    </p>
+                    <div className="body-text mt-4 flex items-center justify-center gap-2 text-center text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
+                      <span>{sponsor.name}</span>
+                      {sponsor.url && (
+                        <ExternalLink className="h-4 w-4 shrink-0 opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                      )}
+                    </div>
                   </div>
                 </Card>
-              </motion.div>
-            ))}
+              );
+
+              return (
+                <motion.div key={sponsor.id} variants={itemVariants}>
+                  {sponsor.url ? (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block transition-transform duration-300 hover:scale-105 focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2 rounded-lg"
+                      aria-label={`Посетить сайт ${sponsor.name}`}
+                    >
+                      {CardContent}
+                    </a>
+                  ) : (
+                    CardContent
+                  )}
+                </motion.div>
+              );
+            })}
           </motion.div>
         </motion.div>
 
