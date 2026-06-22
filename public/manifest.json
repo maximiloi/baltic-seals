@@ -1,0 +1,38 @@
+{
+  "background_color": "#ffffff",
+  "categories": ["sports"],
+  "description": "Профессиональная команда по флаг-футболу из Санкт-Петербурга",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "16x16",
+      "src": "/favicon-16x16.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "32x32",
+      "src": "/favicon-32x32.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "96x96",
+      "src": "/favicon-96x96.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/favicon-512x512.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Балтийские Нерпы",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "short_name": "Baltic Seals",
+  "start_url": "/",
+  "theme_color": "#0f172a"
+}
