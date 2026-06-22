@@ -159,28 +159,32 @@ export function HeroSection() {
             className="flex flex-wrap justify-center gap-4"
             variants={infoVariants}
           >
-            <motion.button
-              className="label-text rounded-lg bg-linear-to-r from-blue-600 to-blue-700 px-8 py-3 font-bold text-white shadow-lg shadow-blue-500/25 transition-shadow hover:shadow-blue-500/40"
+            <motion.a
+              href="https://vk.ru/baltic_seals"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-text rounded-lg bg-linear-to-r from-blue-600 to-blue-700 px-8 py-3 font-bold text-white shadow-lg shadow-blue-500/25 transition-shadow hover:shadow-blue-500/40 inline-block focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
               style={{ fontFamily: "'Inter', sans-serif" }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
-              aria-label="Узнать больше о команде"
+              aria-label="Узнать больше о команде в ВКонтакте"
             >
               Узнать больше
-            </motion.button>
-            <motion.button
-              className="label-text rounded-lg border-2 border-blue-400 px-8 py-3 font-bold text-blue-400 transition-colors hover:bg-blue-400/10"
+            </motion.a>
+            <motion.a
+              href="#contacts"
+              className="label-text rounded-lg bg-linear-to-r from-pink-500 to-rose-600 px-8 py-3 font-bold text-white shadow-lg shadow-pink-500/35 transition-shadow hover:shadow-pink-500/50 inline-block focus-visible:outline-2 focus-visible:outline-pink-400 focus-visible:outline-offset-2"
               style={{ fontFamily: "'Inter', sans-serif" }}
               whileHover={
                 shouldReduceMotion
                   ? {}
-                  : { scale: 1.05, backgroundColor: 'rgba(96, 165, 250, 0.1)' }
+                  : { scale: 1.05 }
               }
               whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
-              aria-label="Связаться с командой"
+              aria-label="Перейти к контактам"
             >
               Контакты
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </motion.div>

@@ -183,6 +183,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <motion.div
+            id="contacts"
             className="my-12 border-t border-slate-700/50"
             variants={itemVariants}
             initial="hidden"

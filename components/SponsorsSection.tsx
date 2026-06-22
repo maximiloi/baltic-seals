@@ -271,14 +271,17 @@ export function SponsorsSection() {
             флаг-футболу и хотят быть частью растущего сообщества. Свяжитесь с
             нами, чтобы обсудить возможности сотрудничества!
           </motion.p>
-          <motion.button
-            className="label-text rounded-lg bg-linear-to-r from-purple-600 to-purple-700 px-8 py-3 font-bold text-white shadow-lg shadow-purple-500/25 transition-shadow hover:shadow-purple-500/40"
+          <motion.a
+            href="https://vk.ru/baltic_seals"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label-text rounded-lg bg-linear-to-r from-purple-600 to-purple-700 px-8 py-3 font-bold text-white shadow-lg shadow-purple-500/25 transition-shadow hover:shadow-purple-500/40 inline-block focus-visible:outline-2 focus-visible:outline-purple-400 focus-visible:outline-offset-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            aria-label="Связаться с командой о спонсорстве"
+            aria-label="Связаться с командой о спонсорстве в ВКонтакте"
           >
             Связаться с нами
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>
