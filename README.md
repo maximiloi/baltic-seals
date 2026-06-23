@@ -10,6 +10,7 @@
 - **UI Components**: shadcn/ui (Button, и другие компоненты по мере необходимости)
 - **Icons**: lucide-react
 - **Linting**: ESLint
+- **Animations**: Framer Motion
 
 ## Структура проекта
 
@@ -20,15 +21,25 @@ baltic-seals/
 │   ├── page.tsx           # Home page
 │   └── globals.css        # Global styles
 ├── components/
+│   ├── HeroSection.tsx    # Hero секция с анимациями
+│   ├── FlagFootballSection.tsx
+│   ├── StatsSection.tsx   # Статистика команды
+│   ├── TournamentsSection.tsx
+│   ├── PracticesSection.tsx
+│   ├── SponsorsSection.tsx
+│   ├── Footer.tsx
+│   ├── WavesSVG.tsx       # Компонент волн
 │   └── ui/                # shadcn/ui компоненты
 ├── lib/
-│   └── utils.ts           # Утилиты (cn для классов)
+│   ├── utils.ts           # Утилиты (cn для классов)
+│   ├── tournaments.ts     # Работа с данными турниров
+│   └── practices.ts       # Работа с данными тренировок
 ├── public/                # Статические файлы
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.ts
 ├── components.json        # shadcn конфигурация
-└── CLAUDE.md.ru          # Русская версия этого файла
+└── CLAUDE.md              # Документация для Claude
 ```
 
 ## Команды разработки
@@ -59,6 +70,15 @@ npx shadcn@latest add <component-name>
 
 - ✅ Next.js инициализирован
 - ✅ Tailwind CSS настроен
-- ✅ shadcn/ui интегрирован
-- ⏳ Структура страниц в разработке
-- ⏳ Компоненты команды в разработке
+- ✅ shadcn/ui интегрирован (Card, Button)
+- ✅ Hero Section с анимациями Framer Motion
+- ✅ Flag Football Section с информацией об олимпийском виде спорта
+- ✅ Stats Section с динамической статистикой из турниров
+- ✅ Tournaments Section с единым дизайном
+- ✅ WavesSVG компонент с бесшовными волнами
+- ✅ Practices Section с расписанием тренировок и ссылками на Яндекс.Карты
+- ✅ Sponsors Section со спонсорскими предложениями
+- ✅ Footer с контактами и ссылками
+- ✅ Интеграция с Google Sheets для турниров и тренировок
+- ✅ Адаптивный дизайн для всех устройств
+- ✅ Dark mode совместимость
