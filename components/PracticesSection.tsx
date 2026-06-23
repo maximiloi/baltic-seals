@@ -83,7 +83,7 @@ function PracticeCard({ practice }: PracticeCardProps) {
             <AlertCircle className="mt-0.5 h-8 w-8 shrink-0 text-amber-400" />
             <div className="text-xs text-amber-200">
               <p className="text-xs font-semibold sm:text-sm">
-                Проведение уточняйте в группе ВКонтакте:
+                Информацию о проведении уточняйте в группе ВКонтакте:
               </p>
               <a
                 href="https://vk.ru/baltic_seals"
@@ -116,7 +116,7 @@ export function PracticesSectionContentClient({
 
   return (
     <section id="practices" className="relative w-full py-24 text-white">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-850 to-slate-900" />
+      <div className="via-slate-850 absolute inset-0 bg-linear-to-b from-slate-900 to-slate-900" />
       {/* Animated background glows - distributed, teal/green tones */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.div
@@ -132,7 +132,7 @@ export function PracticesSectionContentClient({
           }}
         />
         <motion.div
-          className="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"
+          className="absolute right-1/4 bottom-1/3 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"
           animate={{
             y: [0, -40, 0],
             x: [0, -35, 0],
