@@ -6,7 +6,7 @@ module.exports = {
       args: 'start',
       cwd: '/var/www/baltic-seals.ru',
       env: {
-        PORT: 3002,
+        PORT: 3000,
         GOOGLE_SHEET_ID: process.env.GOOGLE_SHEET_ID,
         GOOGLE_SHEET_API_KEY: process.env.GOOGLE_SHEET_API_KEY,
         NODE_ENV: 'production',
