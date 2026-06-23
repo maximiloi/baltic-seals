@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Heart, Mail, MapPin } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -231,7 +231,7 @@ export function Footer() {
               </div>
             </motion.div>
 
-            {/* Phone */}
+            {/* Phone
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-4"
@@ -248,7 +248,7 @@ export function Footer() {
                   +7 (999) 123-45-67
                 </a>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
 
@@ -261,11 +261,13 @@ export function Footer() {
         >
           <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <p className="body-text text-slate-400">
-                © 2025 - {currentYear} Балтийские Нерпы. Все права защищены.
-              </p>
-              {/* <div className="flex gap-6">
-                <motion.a
+              <div className="flex flex-col gap-4 md:flex-row md:items-center">
+                <p className="body-text text-slate-400">
+                  © 2025 - {currentYear} Балтийские Нерпы. Все права защищены.
+                </p>
+              </div>
+              <div className="flex gap-6">
+                {/* <motion.a
                   href="#"
                   className="body-text text-slate-400 transition-colors hover:text-blue-400"
                   whileHover={{ x: 2 }}
@@ -278,8 +280,20 @@ export function Footer() {
                   whileHover={{ x: 2 }}
                 >
                   Условия использования
-                </motion.a>
-              </div> */}
+                </motion.a> */}
+                <p className="body-text flex items-center gap-2 text-slate-400">
+                  Создано с{' '}
+                  <motion.a
+                    href="https://github.com/maximiloi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors"
+                  >
+                    <Heart className="h-4 w-4 text-cyan-400 transition-colors hover:text-orange-500" />
+                  </motion.a>{' '}
+                  для Нерп
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
