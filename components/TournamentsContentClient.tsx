@@ -152,13 +152,12 @@ function TournamentCarousel({ items, isPast }: TournamentCarouselProps) {
   useEffect(() => {
     if (!api) return;
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
     const onSelect = () => {
+      setCount(api.scrollSnapList().length);
       setCurrent(api.selectedScrollSnap() + 1);
     };
 
+    onSelect();
     api.on('select', onSelect);
     return () => {
       api.off('select', onSelect);
