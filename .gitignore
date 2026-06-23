@@ -42,3 +42,5 @@ next-env.d.ts
 
 # claude code
 .claude/
+FONTS_OPTIMIZATION.md
+DEPLOYMENT.md

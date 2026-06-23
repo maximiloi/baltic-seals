@@ -1,10 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-heading",
+  subsets: ["latin", "cyrillic"],
+  weight: ["700", "800"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -63,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
       <head>
         <link rel="manifest" href="/manifest.json" />

@@ -263,7 +263,7 @@ export function Footer() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div className="flex flex-col gap-4 md:flex-row md:items-center">
                 <p className="body-text text-slate-400">
-                  © 2025 - {currentYear} Балтийские Нерпы. Все права защищены.
+                  © 2025 - {currentYear} Балтийские Нерпы.
                 </p>
               </div>
               <div className="flex gap-6">
