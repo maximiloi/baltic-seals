@@ -1,0 +1,120 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '24'
+  ARTIFACT_NAME: 'baltic-seals-build'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      build-status: ${{ job.status }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build application
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
+        run: npm run build
+
+      - name: Prune dev dependencies
+        run: npm prune --omit=dev
+
+      - name: Create deployment package
+        run: |
+          mkdir -p deploy
+          cp -r .next public components app lib node_modules package.json package-lock.json ecosystem.config.cjs next.config.ts deploy/
+          tar -czf ${{ env.ARTIFACT_NAME }}.tar.gz -C deploy .
+          ls -lh ${{ env.ARTIFACT_NAME }}.tar.gz
+          du -sh deploy/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.ARTIFACT_NAME }}.tar.gz
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+
+      - name: Upload build to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          source: '${{ env.ARTIFACT_NAME }}.tar.gz'
+          target: ${{ secrets.DEPLOY_PATH }}/
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          script_stop: true
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
+
+            echo "Backing up current build..."
+            [ -d ".next" ] && tar -czf .next.backup.tar.gz .next || true
+
+            echo "Extracting new build..."
+            if [ -f "${{ env.ARTIFACT_NAME }}.tar.gz" ]; then
+              tar -xzf ${{ env.ARTIFACT_NAME }}.tar.gz
+            else
+              echo "❌ Archive ${{ env.ARTIFACT_NAME }}.tar.gz not found!"
+              exit 1
+            fi
+
+            echo "Creating .env.local..."
+            echo "GOOGLE_SHEET_ID=${{ secrets.GOOGLE_SHEET_ID }}" > .env.local
+            echo "GOOGLE_SHEET_API_KEY=${{ secrets.GOOGLE_SHEET_API_KEY }}" >> .env.local
+            echo "NODE_ENV=production" >> .env.local
+            echo "PORT=3000" >> .env.local
+
+            echo "Restarting PM2 processes..."
+            pm2 restart baltic-seals || pm2 start ecosystem.config.cjs
+
+            echo "Deployment completed successfully!"
+            pm2 status
+
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Deployment completed successfully!"
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ Deployment failed!"
