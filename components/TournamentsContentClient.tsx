@@ -53,7 +53,9 @@ function CountdownTimer({ date }: { date: string }) {
 
   useEffect(() => {
     const calculateCountdown = () => {
-      const targetDate = new Date(date).getTime();
+      const targetDateObj = new Date(date);
+      targetDateObj.setHours(10, 0, 0, 0);
+      const targetDate = targetDateObj.getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
 

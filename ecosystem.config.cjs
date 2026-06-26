@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'baltic-seals',
+      name: 'baltic-seals-site',
       script: 'npm',
       args: 'start',
       cwd: '/var/www/baltic-seals.ru',
