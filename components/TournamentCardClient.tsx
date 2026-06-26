@@ -8,6 +8,7 @@ import {
   Award,
   Calendar,
   Check,
+  Fish,
   MapPin,
   Medal,
   Minus,
@@ -148,25 +149,36 @@ export function TournamentCardClient({
       <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative z-10 flex h-full flex-col">
-        {isPast && tournament.finalPlace && (
+        {isPast && (tournament.finalPlace || tournament.farm) && (
           <motion.div
-            className={twMerge(
-              'mb-4 inline-flex w-fit items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-semibold',
-              tournament.finalPlace === '1'
-                ? 'border-amber-400/60 bg-amber-500/20 text-amber-100'
-                : 'border-slate-400/60 bg-slate-600/20 text-slate-100'
-            )}
+            className="mb-4 flex flex-wrap items-center gap-2"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
-            <PlaceIcon place={tournament.finalPlace} />
-            {tournament.finalPlace} место
+            {tournament.farm && (
+              <div className="inline-flex w-fit items-center gap-2 rounded-lg border border-teal-400/60 bg-teal-500/20 px-3 py-1.5 text-sm font-semibold text-teal-100">
+                <Fish className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Корюшки
+              </div>
+            )}
+            {tournament.finalPlace && (
+              <div
+                className={twMerge(
+                  'inline-flex w-fit items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-semibold',
+                  tournament.finalPlace === '1'
+                    ? 'border-amber-400/60 bg-amber-500/20 text-amber-100'
+                    : 'border-slate-400/60 bg-slate-600/20 text-slate-100'
+                )}
+              >
+                <PlaceIcon place={tournament.finalPlace} />
+                {tournament.finalPlace} место
+              </div>
+            )}
           </motion.div>
         )}
 
-        {/* League badge and tournament name on one line */}
         <div className="mb-4 flex items-center justify-between gap-3">
           <h4 className="line-clamp-2 flex-1 text-lg font-bold text-slate-50 transition-colors duration-300 group-hover:text-blue-200">
             {tournament.name}
@@ -280,15 +292,24 @@ export function TournamentCardClient({
         {/* Registration Button for Upcoming Tournaments */}
         {!isPast && (
           <motion.div
-            className="mt-auto pt-4"
+            className="mt-auto flex flex-wrap items-center gap-2 pt-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center gap-1.5 rounded-lg border border-blue-400/50 bg-blue-500/20 px-3 py-2 text-xs font-medium text-blue-200 transition-all duration-300 group-hover:border-blue-300/70 group-hover:bg-blue-500/30 group-hover:text-blue-100">
-              Регистрация открыта
-            </span>
+            {tournament.farm && (
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-teal-400/60 bg-teal-500/20 px-3 py-2 text-xs font-medium text-teal-100 transition-all duration-300">
+                <Fish className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Корюшки
+              </span>
+            )}
+            {new Date(tournament.date).getTime() - new Date().getTime() >
+              7 * 24 * 60 * 60 * 1000 && (
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-blue-400/50 bg-blue-500/20 px-3 py-2 text-xs font-medium text-blue-200 transition-all duration-300 group-hover:border-blue-300/70 group-hover:bg-blue-500/30 group-hover:text-blue-100">
+                Регистрация открыта
+              </span>
+            )}
           </motion.div>
         )}
       </div>

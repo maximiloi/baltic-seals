@@ -13,4 +13,5 @@ export interface Tournament {
   status: 'upcoming' | 'past';
   finalPlace?: string;
   matches: MatchResult[]; // Массив матчей вместо простой строки
+  farm?: boolean; // Турниры "Корюшки" (farm team)
 }
