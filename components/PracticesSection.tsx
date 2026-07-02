@@ -62,7 +62,7 @@ function PracticeCard({ practice }: PracticeCardProps) {
           >
             <Clock className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
             <span className="wrap-break-words">
-              <strong className="block sm:inline">{session.day}:</strong>
+              <strong className="block sm:inline">{session.day}: </strong>
               <span className="block sm:inline">
                 c {session.startTime} до {session.endTime}
               </span>
@@ -75,6 +75,18 @@ function PracticeCard({ practice }: PracticeCardProps) {
       <div className="mb-4 sm:mb-6">
         <YandexMapBlock practice={practice} />
       </div>
+
+      {/* Статус permanent - регулярная тренировка */}
+      {practice.status === 'permanent' && (
+        <div className="mt-auto rounded-lg bg-green-500/10 p-2 sm:p-3">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="mt-0.5 h-8 w-8 shrink-0 text-green-400" />
+            <p className="text-xs font-semibold text-green-200 sm:text-sm">
+              Регулярная тренировка — приходите, всегда рады новичкам
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Статус optional - внизу */}
       {practice.status === 'optional' && (
