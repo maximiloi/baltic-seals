@@ -114,6 +114,7 @@ export async function getTournaments(): Promise<Tournament[]> {
           status: (getVal('status') || 'upcoming') as 'upcoming' | 'past',
           finalPlace: getVal('finalplace') || undefined,
           matches: matches,
+          farm: getVal('farm')?.toLowerCase() === 'true',
         };
       });
   } catch (error) {

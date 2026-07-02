@@ -43,8 +43,10 @@ const itemVariants = {
 };
 
 export function StatsSection({ tournaments }: StatsSectionProps) {
-  // Рассчитываем статистику из турниров
-  const pastTournaments = tournaments.filter((t) => t.status === 'past');
+  // Рассчитываем статистику из турниров (исключаем турниры "Корюшки")
+  const pastTournaments = tournaments.filter(
+    (t) => t.status === 'past' && !t.farm
+  );
 
   let wins = 0;
   let totalMatches = 0;
