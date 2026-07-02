@@ -35,9 +35,9 @@ function BenefitCard({ icon, title, description }: BenefitCardProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className="group rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:from-slate-900/80 hover:to-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/20 sm:p-8"
+      className="group rounded-2xl border border-slate-700/50 bg-linear-to-br from-slate-900/60 to-slate-800/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:from-slate-900/80 hover:to-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/20 sm:p-8"
     >
-      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 text-cyan-400 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30">
+      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-cyan-500/20 to-blue-500/20 text-cyan-400 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30">
         {icon}
       </div>
       <h3 className="mb-2 text-lg font-bold text-white sm:text-xl">{title}</h3>
@@ -88,8 +88,8 @@ export function HowToJoinSection() {
 
   return (
     <section id="how-to-join" className="relative w-full py-24 text-white">
-      <div className="via-slate-850 absolute inset-0 bg-linear-to-b from-slate-900 to-slate-950" />
-      {/* Animated background glows - cyan/blue tones */}
+      <div className="absolute inset-0 bg-slate-900" />
+      {/* Animated background glows - cyan/blue tones transitioning to rose/pink */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.div
           className="absolute top-1/3 right-1/4 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"
@@ -104,7 +104,7 @@ export function HowToJoinSection() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/3 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl"
+          className="absolute bottom-1/4 left-1/3 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"
           animate={{
             y: [0, 30, 0],
             x: [0, -25, 0],
@@ -166,7 +166,7 @@ export function HowToJoinSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="rounded-2xl border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-8 text-center backdrop-blur-sm sm:p-12"
+          className="rounded-2xl border border-cyan-500/20 bg-linear-to-r from-cyan-500/10 to-blue-500/10 p-8 text-center backdrop-blur-sm sm:p-12"
         >
           <motion.h3
             className="mb-2 text-2xl font-bold text-white sm:text-3xl"
@@ -186,7 +186,7 @@ export function HowToJoinSection() {
           <motion.button
             variants={itemVariants}
             onClick={handleScrollToPractices}
-            className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-3 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 active:scale-95 sm:px-10 sm:py-4"
+            className="group inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-cyan-500 to-blue-500 px-8 py-3 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 active:scale-95 sm:px-10 sm:py-4"
           >
             Смотреть тренировки
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
